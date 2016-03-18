@@ -1,0 +1,6 @@
+slave:
+  image: 251150836600.dkr.ecr.us-east-1.amazonaws.com/docker-locust-slave
+  cpu_shares: 100
+  mem_limit: 268435456
+  environment:
+    - TARGET_HOST=http://example.inokara.com

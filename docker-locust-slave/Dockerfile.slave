@@ -1,0 +1,12 @@
+FROM python:2.7.11-alpine
+RUN apk update && \
+    apk add python-dev build-base curl && \
+    pip install locustio pyzmq && \
+    apk del python-dev && \
+    rm -f /var/cache/apk/* && \
+    mkdir /locust
+ADD test.py /locust/test.py
+ADD slave.sh /locust/slave.sh
+RUN chmod 755 /locust/slave.sh
+EXPOSE 5557 5558
+CMD ["/locust/slave.sh"]

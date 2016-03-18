@@ -1,0 +1,10 @@
+master:
+  image: 251150836600.dkr.ecr.us-east-1.amazonaws.com/docker-locust-master
+  cpu_shares: 100
+  mem_limit: 268435456
+  environment:
+    - TARGET_HOST=http://kome.inokara.com
+  ports:
+    - "80:8089"
+    - "5557:5557"
+    - "5558:5558"

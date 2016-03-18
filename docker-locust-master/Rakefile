@@ -1,0 +1,7 @@
+docker build -f Dockerfile.master -t docker-locust-master .
+docker build -f Dockerfile.slave -t docker-locust-slave .
+docker tag docker-locust-master xxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/docker-locust-master
+docker tag docker-locust-slave xxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/docker-locust-slave
+docker-compose up -d
+docker-compose scale slave=2
+docker-compose scale slave=3
